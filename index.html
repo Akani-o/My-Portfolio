@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ===== CSS VARIABLES ===== */
         :root {
             --gold: #D4AF37;
             --gold-light: #F4E4A6;
@@ -22,6 +23,7 @@
             --border-radius: 8px;
         }
 
+        /* ===== BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -77,6 +79,7 @@
             border-radius: 2px;
         }
 
+        /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -110,7 +113,15 @@
             color: var(--black);
         }
 
-        /* Header */
+        .whatsapp-btn {
+            background: #25D366 !important;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E !important;
+        }
+
+        /* ===== HEADER ===== */
         header {
             background: linear-gradient(135deg, var(--black-light), var(--black));
             color: var(--white);
@@ -155,7 +166,7 @@
             font-weight: 600;
         }
 
-        /* Navigation */
+        /* ===== NAVIGATION ===== */
         nav {
             background: rgba(10, 10, 10, 0.95);
             padding: 1rem 0;
@@ -224,7 +235,7 @@
             color: var(--white);
         }
 
-        /* About */
+        /* ===== ABOUT SECTION ===== */
         .about-content {
             text-align: center;
             max-width: 800px;
@@ -237,7 +248,7 @@
             color: var(--gray);
         }
 
-        /* Skills */
+        /* ===== SKILLS SECTION ===== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -277,7 +288,7 @@
             color: var(--gray);
         }
 
-        /* Projects */
+        /* ===== PROJECTS SECTION ===== */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -374,7 +385,7 @@
             margin-top: 1.5rem;
         }
 
-        /* Contact */
+        /* ===== CONTACT SECTION ===== */
         #contact {
             background: linear-gradient(135deg, var(--black-light), var(--black));
             color: var(--white);
@@ -430,15 +441,7 @@
             margin-top: 2rem;
         }
 
-        .whatsapp-btn {
-            background: #25D366 !important;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128C7E !important;
-        }
-
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
             background: var(--black-light);
             color: var(--white);
@@ -447,7 +450,7 @@
             border-top: 1px solid var(--gold);
         }
 
-        /* Animations */
+        /* ===== ANIMATIONS ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -459,7 +462,7 @@
             transform: translateY(0);
         }
 
-        /* Responsive Design */
+        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -558,7 +561,7 @@
     </nav>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content fade-in">
@@ -570,7 +573,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title">My Skills</h2>
             <div class="skills-grid">
@@ -614,7 +617,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
             <div class="projects-grid">
@@ -675,7 +678,7 @@
                 <!-- Import Company Website -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="/assets/images/download.png" 
+                        <img src="/assets/images/Screenshot_20-11-2025_102132_kanloper.vercel.app.jpeg" 
                              alt="Import Business Website" 
                              class="project-img">
                         <div class="project-overlay">
@@ -703,7 +706,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-container">
@@ -757,7 +760,7 @@
     </footer>
 
     <script>
-        // Typing Animation
+        // ===== TYPING ANIMATION =====
         const typedTextSpan = document.getElementById('typed-text');
         const textArray = ["Frontend Developer", "UI/UX Enthusiast", "Responsive Design Expert"];
         const typingDelay = 100;
@@ -788,53 +791,67 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            if (textArray.length) setTimeout(type, newTextDelay + 250);
-        });
-
-        // Mobile menu toggle
-        document.getElementById('menuToggle').addEventListener('click', function() {
+        // ===== MOBILE MENU TOGGLE =====
+        function initMobileMenu() {
+            const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('show');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                const navMenu = document.getElementById('navMenu');
-                navMenu.classList.remove('show');
+            
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
             });
-        });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('show');
                 });
-            });
-        });
-
-        // Scroll animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-
-        function checkScroll() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('appear');
-                }
             });
         }
 
-        window.addEventListener('scroll', checkScroll);
-        checkScroll(); // Check on initial load
+        // ===== SMOOTH SCROLLING =====
+        function initSmoothScrolling() {
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            function checkScroll() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('appear');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Check on initial load
+        }
+
+        // ===== INITIALIZE ALL FUNCTIONS =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start typing animation
+            if (textArray.length) setTimeout(type, newTextDelay + 250);
+            
+            // Initialize other functionality
+            initMobileMenu();
+            initSmoothScrolling();
+            initScrollAnimations();
+        });
     </script>
 </body>
 </html>
