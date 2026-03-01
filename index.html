@@ -3,42 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agwu Kalu Agwu - Frontend Developer</title>
+    <title>Agwu Kalu Agwu · Full‑Stack Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --gold: #D4AF37;
-            --gold-light: #F4E4A6;
-            --gold-dark: #B8860B;
-            --black: #0A0A0A;
-            --black-light: #1A1A1A;
-            --black-lighter: #2A2A2A;
-            --white: #F5F5F5;
-            --gray: #8A8A8A;
-            --transition: all 0.3s ease;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
-            --border-radius: 8px;
-        }
-
-        /* ===== BASE STYLES ===== */
+        /* ===== LUXURY OLED BLACK & GOLD ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4A6;
+            --gold-dark: #B8860B;
+            --black: #0A0A0A;        /* OLED base */
+            --black-light: #1A1A1A;
+            --black-lighter: #2A2A2A;
+            --white: #F5F5F5;
+            --gray: #A0A0A0;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.8), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+            --border-radius: 10px;
+            --gold-gradient: linear-gradient(135deg, var(--gold) 0%, #e6c45e 40%, var(--gold-light) 100%);
+            --gold-glow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--white);
             background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
@@ -61,121 +58,133 @@
         .section-title h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
             color: var(--gold);
+            display: inline-block;
+            position: relative;
+            letter-spacing: -0.02em;
         }
 
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
+            width: 100px;
             height: 4px;
-            background: linear-gradient(to right, var(--gold), var(--gold-light));
-            border-radius: 2px;
+            background: var(--gold-gradient);
+            border-radius: 4px;
+            box-shadow: var(--gold-glow);
         }
 
-        /* ===== BUTTONS ===== */
+        /* ===== BUTTONS & GLOW ===== */
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            padding: 12px 30px;
-            background: linear-gradient(to right, var(--gold), var(--gold-dark));
+            padding: 12px 32px;
+            background: var(--gold-gradient);
             color: var(--black);
-            border: none;
-            border-radius: var(--border-radius);
             font-weight: 600;
+            border: none;
+            border-radius: 40px;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
             text-decoration: none;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(to right, var(--gold-light), var(--gold));
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #e6c45e, var(--gold-light));
         }
 
         .btn-outline {
             background: transparent;
             border: 2px solid var(--gold);
             color: var(--gold);
+            box-shadow: none;
         }
 
         .btn-outline:hover {
             background: var(--gold);
             color: var(--black);
+            box-shadow: var(--gold-glow);
         }
 
-        .whatsapp-btn {
-            background: #25D366 !important;
+        .gold-special {
+            background: var(--gold-gradient);
+            color: var(--black);
+            font-weight: 700;
+            border: none;
+            box-shadow: var(--gold-glow);
+            transition: 0.3s;
         }
 
-        .whatsapp-btn:hover {
-            background: #128C7E !important;
+        .gold-special:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 0 30px var(--gold);
         }
 
-        /* ===== HEADER ===== */
+        /* ===== HEADER (OLED) ===== */
         header {
-            background: linear-gradient(135deg, var(--black-light), var(--black));
+            background: radial-gradient(circle at 30% 30%, #1f1f1f, var(--black) 80%);
             color: var(--white);
-            padding: 4rem 0;
+            padding: 5rem 0 4rem;
             text-align: center;
             position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid var(--gold);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
         }
 
         header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(212,175,55,0.1)"><polygon points="1000,100 1000,0 0,100"></polygon></svg>');
-            background-size: cover;
+            inset: 0;
+            background: repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.02) 0px, rgba(212, 175, 55, 0.02) 20px, transparent 20px, transparent 40px);
+            pointer-events: none;
         }
 
         .header-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.8rem;
             font-weight: 700;
-            color: var(--gold);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
         header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
         }
 
         .typed-text {
             color: var(--gold-light);
-            font-weight: 600;
+            font-weight: 500;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
         }
 
         /* ===== NAVIGATION ===== */
         nav {
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(16px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
-            border-bottom: 1px solid var(--gold);
+            z-index: 100;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
         }
 
         .nav-container {
@@ -185,41 +194,43 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--gold);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-link {
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
+            padding: 0.5rem 0;
             position: relative;
+            transition: 0.2s;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 50%;
+            bottom: 0;
+            left: 0;
             width: 0;
             height: 2px;
-            background: var(--gold);
-            transition: var(--transition);
-            transform: translateX(-50%);
+            background: var(--gold-gradient);
+            transition: 0.3s;
+            box-shadow: var(--gold-glow);
         }
 
         .nav-link:hover::after {
-            width: 80%;
+            width: 100%;
         }
 
         .nav-link:hover {
@@ -230,231 +241,313 @@
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            color: var(--gold);
             cursor: pointer;
-            color: var(--white);
         }
 
-        /* ===== ABOUT SECTION ===== */
+        /* ===== ABOUT ===== */
         .about-content {
-            text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            font-size: 1.1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray);
         }
 
         .about-content p {
             margin-bottom: 1.5rem;
-            color: var(--gray);
         }
 
-        /* ===== SKILLS SECTION ===== */
+        /* ===== 4‑PILLAR SKILL GRID ===== */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.8rem;
             margin-top: 2rem;
         }
 
         .skill-card {
             background: var(--black-light);
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.5rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
             border: 1px solid var(--black-lighter);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold-gradient);
+            opacity: 0.4;
+            transition: 0.3s;
         }
 
         .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
             border-color: var(--gold);
+            box-shadow: var(--shadow-lg), 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+            width: 6px;
         }
 
         .skill-icon {
-            font-size: 3rem;
+            font-size: 2.2rem;
             color: var(--gold);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .skill-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
             color: var(--white);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
         }
 
         .skill-card p {
             color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        /* ===== PROJECTS SECTION ===== */
+        /* ===== PROJECTS ===== */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+            margin-bottom: 3rem;
         }
 
         .project-card {
             background: var(--black-light);
-            border-radius: var(--border-radius);
+            border-radius: 18px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: 0.4s;
             border: 1px solid var(--black-lighter);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-12px);
             border-color: var(--gold);
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(212, 175, 55, 0.15);
         }
 
         .project-image {
             position: relative;
-            height: 250px;
+            height: 220px;
             overflow: hidden;
-            background: var(--black);
+            background: #111;
         }
 
         .project-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
+            transition: 0.5s;
+            opacity: 0.9;
         }
 
         .project-card:hover .project-img {
             transform: scale(1.05);
         }
 
+        .performance-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 60px;
+            height: 60px;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(4px);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            text-transform: uppercase;
+            z-index: 5;
+        }
+
+        .performance-badge span {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--gold-light);
+        }
+
         .project-content {
-            padding: 2rem;
+            padding: 2rem 1.5rem;
         }
 
         .project-content h3 {
             color: var(--white);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
         }
 
         .project-content p {
             color: var(--gray);
-        }
-
-        .status {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: var(--gold);
-            color: var(--black);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .status.live {
-            background: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin: 1rem 0;
+            margin: 1.2rem 0;
         }
 
         .tech-tag {
-            background: var(--black-lighter);
+            background: rgba(212, 175, 55, 0.08);
             color: var(--gold);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
             font-weight: 500;
-            border: 1px solid var(--black-lighter);
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+        .project-links .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
         }
 
-        /* ===== CONTACT SECTION ===== */
-        #contact {
-            background: linear-gradient(135deg, var(--black-light), var(--black));
-            color: var(--white);
-            border-top: 1px solid var(--gold);
+        /* ===== VAULT BUTTON ===== */
+        .vault-container {
+            text-align: center;
+            margin-top: 3rem;
         }
 
-        #contact .section-title h2 {
+        .btn-vault {
+            background: transparent;
+            border: 2px solid var(--gold);
             color: var(--gold);
+            font-size: 1.3rem;
+            padding: 1rem 3rem;
+            border-radius: 60px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+            transition: 0.3s;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        #contact .section-title h2::after {
+        .btn-vault:hover {
             background: var(--gold);
+            color: var(--black);
+            box-shadow: 0 0 45px var(--gold);
+            border-color: var(--gold-light);
+            transform: scale(1.03);
         }
 
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
+        /* ===== VODA STRATEGY ===== */
+        .voda-section {
+            background: linear-gradient(145deg, #0C0C0C, #0A0A0A);
+            padding: 4rem 2rem;
+            border-radius: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin: 5rem 0;
+            text-align: center;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8), 0 20px 30px -15px black;
+            position: relative;
+        }
+
+        .voda-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 40px;
+            padding: 2px;
+            background: var(--gold-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .voda-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .voda-section p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+
+        .voda-section .gold-em {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* ===== CONTACT & FOOTER ===== */
+        #contact {
+            background: #0C0C0C;
+            border-top: 1px solid rgba(212,175,55,0.3);
         }
 
         .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            width: 100%;
             max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-item {
             display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(255,255,255,0.02);
+            padding: 1.2rem 2rem;
+            border-radius: 60px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--black-lighter);
         }
 
         .contact-icon {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-top: 0.2rem;
-        }
-
-        .contact-details h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--gold);
-        }
-
-        .contact-btns {
+            width: 48px;
+            height: 48px;
+            background: rgba(212,175,55,0.1);
+            border-radius: 50%;
             display: flex;
-            gap: 1rem;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
+            color: var(--gold);
+            font-size: 1.4rem;
         }
 
-        /* ===== FOOTER ===== */
         footer {
-            background: var(--black-light);
-            color: var(--white);
+            padding: 2.5rem 0;
             text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid var(--gold);
+            color: var(--gray);
+            border-top: 1px solid rgba(212,175,55,0.15);
         }
 
         /* ===== ANIMATIONS ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
         .fade-in.appear {
@@ -462,95 +555,50 @@
             transform: translateY(0);
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--black-light);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: var(--shadow-lg);
-                border-top: 1px solid var(--gold);
-            }
-
-            .nav-menu.show {
-                display: flex;
-            }
-
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1.1rem;
-            }
-
-            .contact-btns {
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-menu {
+                display: none;
                 flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-btns .btn {
+                background: var(--black-light);
+                position: absolute;
+                top: 68px;
+                left: 0;
                 width: 100%;
-                max-width: 280px;
-                justify-content: center;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--gold);
+                backdrop-filter: blur(12px);
             }
+            .nav-menu.show { display: flex; }
+            header h1 { font-size: 2.8rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .voda-section p { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
                 <h1>Agwu Kalu Agwu</h1>
                 <p><span class="typed-text" id="typed-text"></span></p>
-                <a href="#contact" class="btn">
-                    <i class="fas fa-paper-plane"></i> Get In Touch
-                </a>
+                <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Get In Touch</a>
             </div>
         </div>
     </header>
 
-    <!-- Navigation -->
     <nav>
         <div class="container nav-container">
             <div class="logo">AKA</div>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -560,298 +608,205 @@
         </div>
     </nav>
 
-    <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content fade-in">
-                <p>Hello! I'm Agwu, a passionate frontend developer based in Nigeria (GMT+1). I specialize in creating beautiful, responsive websites that help businesses establish their online presence.</p>
-                <p>I believe in delivering quality work that exceeds expectations, which is why I offer a unique approach: see the results first, then decide if you'd like to move forward.</p>
-                <p>With expertise in modern web technologies and a keen eye for design, I create digital experiences that are both functional and visually appealing.</p>
+                <p>I'm Agwu — a Full‑Stack Engineer based in Nigeria (GMT+1). I architect high‑velocity solutions from sleek frontends to secure backends.</p>
+                <p>My approach fuses modern engineering with a designer's eye. I believe in delivering tangible value first, which is why I offer a risk‑free preview phase.</p>
+                <p>Scalable APIs, responsive UIs, and performance are not just features — they're the foundation.</p>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- 4‑PILLAR SKILL GRID (premium) -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
+            <h2 class="section-title">Core pillars</h2>
             <div class="skills-grid">
                 <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <h3>HTML5</h3>
-                    <p>Semantic, accessible markup for better SEO and user experience</p>
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Frontend Mastery</h3>
+                    <p>React, Next.js, and Responsive Design — pixel‑perfect, fluid interfaces with modern tooling.</p>
                 </div>
                 <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
-                    <h3>CSS3</h3>
-                    <p>Responsive design, animations, and modern layout techniques</p>
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <h3>Backend Architecture</h3>
+                    <p>Node.js, Express, and API Design — scalable, RESTful services with clean separation.</p>
                 </div>
                 <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
-                    </div>
-                    <h3>JavaScript</h3>
-                    <p>Interactive web functionality and dynamic user experiences</p>
+                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Data & Security</h3>
+                    <p>PostgreSQL, MongoDB, and JWT Auth — structured, secure data layers with robust access.</p>
                 </div>
                 <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fab fa-bootstrap"></i>
-                    </div>
-                    <h3>Bootstrap</h3>
-                    <p>Responsive framework for rapid and consistent development</p>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fab fa-react"></i>
-                    </div>
-                    <h3>React</h3>
-                    <p>Modern component-based UI development for scalable applications</p>
+                    <div class="skill-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Deployment & Speed</h3>
+                    <p>Git, Vercel, and SEO Optimization — lightning deploys, core web vitals, and discoverability.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- PROJECTS + PERFORMANCE BADGE + VAULT LINK -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">My Projects</h2>
+            <h2 class="section-title">Selected work</h2>
             <div class="projects-grid">
-                <!-- Shally Wardrobe Project -->
+                <!-- Shally Wardrobe -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="/assets/images/Screenshot_16-11-2025_172856_shally-mu.vercel.app.jpeg" 
-                             alt="Shally Wardrobe - Premium Fashion Designer Portfolio" 
-                             class="project-img">
-                        <div class="project-overlay">
-                            <span class="status live">Live</span>
-                        </div>
+                        <img src="/assets/images/Screenshot_16-11-2025_172856_shally-mu.vercel.app.jpeg" alt="Shally Wardrobe" class="project-img">
+                        <div class="performance-badge"><span>99%</span> Perf</div>
                     </div>
                     <div class="project-content">
                         <h3>Shally Wardrobe</h3>
-                        <p>A premium fashion designer portfolio showcasing timeless menswear collections with modern design, smooth animations, and responsive layout.</p>
+                        <p>Premium fashion designer portfolio with menswear collections. Seamless animations.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">React</span><span class="tech-tag">Next.js</span><span class="tech-tag">Framer</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://shally-mu.vercel.app" class="btn" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> View Live
-                            </a>
+                            <a href="https://shally-mu.vercel.app" class="btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Fashion Design Website -->
+                <!-- Fashion Brand -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="/assets/images/Screenshot_16-11-2025_1999_elara-mocha.vercel.app.jpeg" 
-                             alt="Fashion Design Website" 
-                             class="project-img">
-                        <div class="project-overlay">
-                            <span class="status live">Live</span>
-                        </div>
+                        <img src="/assets/images/Screenshot_16-11-2025_1999_elara-mocha.vercel.app.jpeg" alt="Fashion Brand" class="project-img">
+                        <div class="performance-badge"><span>99%</span> Perf</div>
                     </div>
                     <div class="project-content">
                         <h3>Fashion Design Brand</h3>
-                        <p>A contemporary fashion design website showcasing exclusive clothing collections, brand identity, and modern e-commerce features.</p>
+                        <p>Contemporary brand identity & e‑commerce ready collections. API‑driven catalog.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">MongoDB</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://elara-mocha.vercel.app/" class="btn" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> View Live
-                            </a>
+                            <a href="https://elara-mocha.vercel.app/" class="btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Import Company Website -->
+                <!-- Import Company -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="/assets/images/Screenshot_20-11-2025_102132_kanloper.vercel.app.jpeg" 
-                             alt="Import Business Website" 
-                             class="project-img">
-                        <div class="project-overlay">
-                            <span class="status live">Live</span>
-                        </div>
+                        <img src="/assets/images/Screenshot_20-11-2025_102132_kanloper.vercel.app.jpeg" alt="Import Company" class="project-img">
+                        <div class="performance-badge"><span>99%</span> Perf</div>
                     </div>
                     <div class="project-content">
                         <h3>Import Company</h3>
-                        <p>A professional import business website featuring international trade services, product sourcing, logistics, and corporate solutions.</p>
+                        <p>Corporate site for international trade, logistics, and sourcing. Secure admin area.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Business</span>
+                            <span class="tech-tag">PostgreSQL</span><span class="tech-tag">JWT</span><span class="tech-tag">Vercel</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://kanloper.vercel.app/" class="btn" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> View Live
-                            </a>
+                            <a href="https://kanloper.vercel.app/" class="btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- vault link (glowing gold) -->
+            <div class="vault-container">
+                <a href="vault.html" class="btn btn-vault">Explore Project Vault (40+ Images) →</a>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- THE VODA STRATEGY -->
+    <div class="container">
+        <div class="voda-section fade-in">
+            <h3>⚡ The Voda Strategy: Value‑First Engineering</h3>
+            <p>I offer a high‑velocity <span class="gold-em">'Free Preview' phase</span>: I build a functional prototype of your vision before any formal engagement. <strong>See the results before you commit.</strong></p>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info fade-in">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>agwukaluagwu69@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p>+234 705 989 5477</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>Nigeria (GMT+1)</p>
-                        </div>
-                    </div>
-                    <div class="contact-btns">
-                        <a href="mailto:agwukaluagwu69@gmail.com" class="btn">
-                            <i class="fas fa-envelope"></i> Email Me
-                        </a>
-                        <a href="https://wa.me/2347059895477" class="btn whatsapp-btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
-                    </div>
+            <h2 class="section-title">Connect</h2>
+            <div class="contact-info fade-in">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div><h3>Email</h3><p>agwukaluagwu69@gmail.com</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div><h3>Phone</h3><p>+234 705 989 5477</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div><h3>Location</h3><p>Nigeria (GMT+1)</p></div>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2.5rem;">
+                    <a href="mailto:agwukaluagwu69@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://wa.me/2347059895477" class="btn whatsapp-btn" style="background:#25D366; color:black;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Agwu Kalu Agwu. All rights reserved.</p>
-            <p style="margin-top: 1rem; opacity: 0.8;">Crafting digital experiences with code and creativity</p>
-        </div>
+        <p>© 2026 Agwu Kalu Agwu · Full‑Stack Engineer</p>
+        <p style="margin-top: 0.8rem; opacity: 0.6;">crafted with precision · OLED & gold edition</p>
     </footer>
 
     <script>
-        // ===== TYPING ANIMATION =====
-        const typedTextSpan = document.getElementById('typed-text');
-        const textArray = ["Frontend Developer", "UI/UX Enthusiast", "Responsive Design Expert"];
-        const typingDelay = 100;
-        const erasingDelay = 50;
-        const newTextDelay = 1500;
-        let textArrayIndex = 0;
-        let charIndex = 0;
+        (function() {
+            // TYPING ANIMATION (updated for Full‑Stack Engineer etc)
+            const typedSpan = document.getElementById('typed-text');
+            const roles = ["Full-Stack Engineer", "Solution Architect", "High-Velocity Prototyper"];
+            let roleIndex = 0, charIndex = 0, isDeleting = false;
+            const typeDelay = 100, eraseDelay = 60, pause = 1800;
 
-        function type() {
-            if (charIndex < textArray[textArrayIndex].length) {
-                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, typingDelay);
-            } else {
-                setTimeout(erase, newTextDelay);
+            function typeEffect() {
+                const currentRole = roles[roleIndex];
+                if (isDeleting) {
+                    typedSpan.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typedSpan.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentRole.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, pause);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeEffect, 300);
+                } else {
+                    setTimeout(typeEffect, isDeleting ? eraseDelay : typeDelay);
+                }
             }
-        }
+            setTimeout(typeEffect, 500);
 
-        function erase() {
-            if (charIndex > 0) {
-                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(erase, erasingDelay);
-            } else {
-                textArrayIndex++;
-                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-                setTimeout(type, typingDelay + 500);
-            }
-        }
+            // MOBILE MENU
+            const toggle = document.getElementById('menuToggle');
+            const menu = document.getElementById('navMenu');
+            toggle.addEventListener('click', () => menu.classList.toggle('show'));
+            document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => menu.classList.remove('show')));
 
-        // ===== MOBILE MENU TOGGLE =====
-        function initMobileMenu() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navMenu = document.getElementById('navMenu');
-            
-            menuToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('show');
-            });
-
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('show');
-                });
-            });
-        }
-
-        // ===== SMOOTH SCROLLING =====
-        function initSmoothScrolling() {
+            // SMOOTH SCROLL
             document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+                anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) target.scrollIntoView({ behavior: 'smooth' });
                 });
             });
-        }
 
-        // ===== SCROLL ANIMATIONS =====
-        function initScrollAnimations() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+            // FADE-IN ON SCROLL
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+            const appearOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(e => e.isIntersecting && e.target.classList.add('appear'));
+            }, appearOptions);
+            faders.forEach(f => appearOnScroll.observe(f));
 
-            function checkScroll() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('appear');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', checkScroll);
-            checkScroll(); // Check on initial load
-        }
-
-        // ===== INITIALIZE ALL FUNCTIONS =====
-        document.addEventListener('DOMContentLoaded', function() {
-            // Start typing animation
-            if (textArray.length) setTimeout(type, newTextDelay + 250);
-            
-            // Initialize other functionality
-            initMobileMenu();
-            initSmoothScrolling();
-            initScrollAnimations();
-        });
+            // force check after load
+            window.dispatchEvent(new Event('scroll'));
+        })();
     </script>
 </body>
 </html>

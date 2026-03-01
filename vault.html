@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Vault · Agwu Kalu Agwu</title>
+    <!-- same font awesome & inter -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ----- reuse exact OLED black & gold variables (same as index) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4A6;
+            --gold-dark: #B8860B;
+            --black: #0A0A0A;        /* OLED base */
+            --black-light: #1A1A1A;
+            --black-lighter: #2A2A2A;
+            --white: #F5F5F5;
+            --gray: #A0A0A0;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.8), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+            --border-radius: 10px;
+            --gold-gradient: linear-gradient(135deg, var(--gold) 0%, #e6c45e 40%, var(--gold-light) 100%);
+            --gold-glow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ----- navigation (exact replica, just darker for vault) ----- */
+        nav {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(16px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-gradient);
+            transition: 0.3s;
+            box-shadow: var(--gold-glow);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+        }
+
+        .home-button {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .home-button:hover {
+            background: var(--gold);
+            color: var(--black);
+            box-shadow: var(--gold-glow);
+        }
+
+        /* ----- page header (vault) ----- */
+        .vault-header {
+            text-align: center;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .vault-header h1 {
+            font-size: 3rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .vault-header p {
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+
+        /* ----- sticky filter bar (gold/black) ----- */
+        .filter-bar {
+            position: sticky;
+            top: 80px; /* just below nav */
+            z-index: 90;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 0;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            padding: 0.7rem 2rem;
+            font-weight: 600;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 10px rgba(212,175,55,0.1);
+        }
+
+        .filter-btn:hover {
+            background: rgba(212,175,55,0.15);
+            border-color: var(--gold-light);
+        }
+
+        .filter-btn.active {
+            background: var(--gold-gradient);
+            color: var(--black);
+            border-color: var(--gold-light);
+            font-weight: 700;
+            box-shadow: var(--gold-glow);
+        }
+
+        /* ----- MASONRY GRID (Pinterest style) ----- */
+        .masonry-grid {
+            column-count: 4;            /* 4 columns on large */
+            column-gap: 1.5rem;
+            margin: 0 0 4rem;
+        }
+
+        .grid-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.25s ease;
+            border: 1px solid var(--black-lighter);
+            background: var(--black-light);
+            box-shadow: var(--shadow);
+        }
+
+        .grid-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 30px -8px black, 0 0 0 1px rgba(212,175,55,0.4);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+            background: #1c1c1c; /* placeholder bg */
+            object-fit: cover;
+            aspect-ratio: attr(width) / attr(height); /* fallback */
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.02);
+        }
+
+        /* simulate different aspect ratios (like a real vault) */
+        .grid-item.aspect-tall img {
+            aspect-ratio: 4 / 6;
+        }
+        .grid-item.aspect-square img {
+            aspect-ratio: 1 / 1;
+        }
+        .grid-item.aspect-wide img {
+            aspect-ratio: 16 / 10;
+        }
+        .grid-item.aspect-ultrawide img {
+            aspect-ratio: 16 / 9;
+        }
+
+        /* subtle overlay with category hint (optional luxury) */
+        .item-category {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: var(--gold-light);
+            padding: 1.5rem 1rem 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .grid-item:hover .item-category {
+            opacity: 1;
+        }
+
+        /* ----- LIGHTBOX (fullscreen overlay) ----- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.97);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: min(90vw, 1200px);
+            max-height: 85vh;
+            position: relative;
+            border: 2px solid var(--gold);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(212,175,55,0.3);
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #111;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 1010;
+        }
+
+        .close-lightbox:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-caption {
+            margin-top: 1rem;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        /* ----- footer (light version) ----- */
+        .vault-footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            border-top: 1px solid rgba(212,175,55,0.15);
+            color: var(--gray);
+        }
+
+        /* ----- responsive masonry ----- */
+        @media (max-width: 1200px) {
+            .masonry-grid { column-count: 3; }
+        }
+        @media (max-width: 900px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (max-width: 600px) {
+            .masonry-grid { column-count: 1; }
+            .filter-btn { padding: 0.5rem 1.2rem; }
+            .nav-menu { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation (exactly same style as index, plus home button) -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">AKA · VAULT</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="home-button"><i class="fas fa-arrow-left"></i> Return to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- header -->
+    <div class="container">
+        <div class="vault-header fade-in">
+            <h1>Project Vault <i class="fas fa-archive" style="color: var(--gold);"></i></h1>
+            <p>40+ high-impact images — E‑commerce · Corporate · Web Apps</p>
+        </div>
+    </div>
+
+    <!-- sticky filter bar -->
+    <div class="filter-bar">
+        <div class="container filter-container">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="ecom">E‑commerce</button>
+            <button class="filter-btn" data-filter="corporate">Corporate</button>
+            <button class="filter-btn" data-filter="webapp">Web Apps</button>
+        </div>
+    </div>
+
+    <!-- MASONRY GRID -->
+    <div class="container">
+        <div class="masonry-grid" id="vaultGrid"></div>
+    </div>
+
+    <!-- footer -->
+    <div class="vault-footer container">
+        <p>© 2026 Agwu Kalu Agwu · Full‑Stack Engineer · 40+ proofs of velocity</p>
+    </div>
+
+    <!-- LIGHTBOX overlay -->
+    <div class="lightbox" id="lightbox">
+        <div class="close-lightbox" id="closeLightbox"><i class="fas fa-times"></i></div>
+        <div class="lightbox-content" id="lightboxContent">
+            <img src="" alt="enlarged view" id="lightboxImg">
+        </div>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script>
+        (function() {
+            // ---------- YOUR 40 IMAGES WITH YOUR EXACT FILENAMES ----------
+            const vaultData = [
+                // ===== E-COMMERCE (14 images) - 1ecomm to 14ecomm =====
+                { category: 'ecom', aspect: 'aspect-wide', title: 'E-commerce Project 1', desc: 'Luxury fashion homepage', url: 'assets/vault/ecom/1ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-tall', title: 'E-commerce Project 2', desc: 'Product grid display', url: 'assets/vault/ecom/2ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-square', title: 'E-commerce Project 3', desc: 'Shopping cart interface', url: 'assets/vault/ecom/3ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-ultrawide', title: 'E-commerce Project 4', desc: 'Product detail page', url: 'assets/vault/ecom/4ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-tall', title: 'E-commerce Project 5', desc: 'Mobile e-commerce app', url: 'assets/vault/ecom/5ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-wide', title: 'E-commerce Project 6', desc: 'Brand storefront', url: 'assets/vault/ecom/6ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-square', title: 'E-commerce Project 7', desc: 'Jewelry showcase', url: 'assets/vault/ecom/7ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-ultrawide', title: 'E-commerce Project 8', desc: 'Fashion lookbook', url: 'assets/vault/ecom/8ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-wide', title: 'E-commerce Project 9', desc: 'User account dashboard', url: 'assets/vault/ecom/9ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-square', title: 'E-commerce Project 10', desc: 'Wishlist grid', url: 'assets/vault/ecom/10ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-wide', title: 'E-commerce Project 11', desc: 'Category page', url: 'assets/vault/ecom/11ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-tall', title: 'E-commerce Project 12', desc: 'Search results', url: 'assets/vault/ecom/12ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-square', title: 'E-commerce Project 13', desc: 'Customer reviews', url: 'assets/vault/ecom/13ecomm.jpg' },
+                { category: 'ecom', aspect: 'aspect-wide', title: 'E-commerce Project 14', desc: 'Checkout success', url: 'assets/vault/ecom/14ecomm.jpg' },
+
+                // ===== CORPORATE (14 images) - 1cor to 14cor =====
+                { category: 'corporate', aspect: 'aspect-ultrawide', title: 'Corporate Project 1', desc: 'Financial dashboard', url: 'assets/vault/corporate/1cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-wide', title: 'Corporate Project 2', desc: 'Company about page', url: 'assets/vault/corporate/2cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-tall', title: 'Corporate Project 3', desc: 'Analytics dashboard', url: 'assets/vault/corporate/3cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-square', title: 'Corporate Project 4', desc: 'Consultancy landing', url: 'assets/vault/corporate/4cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-ultrawide', title: 'Corporate Project 5', desc: 'B2B SaaS dashboard', url: 'assets/vault/corporate/5cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-wide', title: 'Corporate Project 6', desc: 'Corporate intranet', url: 'assets/vault/corporate/6cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-tall', title: 'Corporate Project 7', desc: 'Data visualization', url: 'assets/vault/corporate/7cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-square', title: 'Corporate Project 8', desc: 'Investor relations', url: 'assets/vault/corporate/8cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-wide', title: 'Corporate Project 9', desc: 'Team directory', url: 'assets/vault/corporate/9cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-tall', title: 'Corporate Project 10', desc: 'Login screen', url: 'assets/vault/corporate/10cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-ultrawide', title: 'Corporate Project 11', desc: 'Contact page', url: 'assets/vault/corporate/11cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-square', title: 'Corporate Project 12', desc: 'Case study', url: 'assets/vault/corporate/12cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-wide', title: 'Corporate Project 13', desc: 'Pricing plans', url: 'assets/vault/corporate/13cor.jpg' },
+                { category: 'corporate', aspect: 'aspect-ultrawide', title: 'Corporate Project 14', desc: 'Admin panel', url: 'assets/vault/corporate/14cor.jpg' },
+
+                // ===== WEB APPS (12 images) - 01web to 12web =====
+                { category: 'webapp', aspect: 'aspect-ultrawide', title: 'Web App 01', desc: 'Project management', url: 'assets/vault/webapp/01web.jpg' },
+                { category: 'webapp', aspect: 'aspect-wide', title: 'Web App 02', desc: 'Analytics interface', url: 'assets/vault/webapp/02web.jpg' },
+                { category: 'webapp', aspect: 'aspect-tall', title: 'Web App 03', desc: 'Task manager', url: 'assets/vault/webapp/03web.jpg' },
+                { category: 'webapp', aspect: 'aspect-square', title: 'Web App 04', desc: 'CRM software', url: 'assets/vault/webapp/04web.jpg' },
+                { category: 'webapp', aspect: 'aspect-wide', title: 'Web App 05', desc: 'Profile settings', url: 'assets/vault/webapp/05web.jpg' },
+                { category: 'webapp', aspect: 'aspect-tall', title: 'Web App 06', desc: 'Calendar app', url: 'assets/vault/webapp/06web.jpg' },
+                { category: 'webapp', aspect: 'aspect-square', title: 'Web App 07', desc: 'Chat interface', url: 'assets/vault/webapp/07web.jpg' },
+                { category: 'webapp', aspect: 'aspect-wide', title: 'Web App 08', desc: 'File manager', url: 'assets/vault/webapp/08web.jpg' },
+                { category: 'webapp', aspect: 'aspect-ultrawide', title: 'Web App 09', desc: 'Kanban board', url: 'assets/vault/webapp/09web.jpg' },
+                { category: 'webapp', aspect: 'aspect-tall', title: 'Web App 10', desc: 'Notification center', url: 'assets/vault/webapp/10web.jpg' },
+                { category: 'webapp', aspect: 'aspect-wide', title: 'Web App 11', desc: 'Reports export', url: 'assets/vault/webapp/11web.jpg' },
+                { category: 'webapp', aspect: 'aspect-square', title: 'Web App 12', desc: 'Onboarding screens', url: 'assets/vault/webapp/12web.jpg' }
+            ];
+
+            // shuffle for visual variety
+            function shuffleArray(arr) {
+                for (let i = arr.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+                return arr;
+            }
+            const shuffledItems = shuffleArray([...vaultData]);
+
+            // ---------- render grid ----------
+            const grid = document.getElementById('vaultGrid');
+            function renderGrid(filter = 'all') {
+                grid.innerHTML = ''; // clear
+                shuffledItems.forEach(item => {
+                    if (filter !== 'all' && item.category !== filter) return;
+
+                    const gridItem = document.createElement('div');
+                    gridItem.className = `grid-item ${item.aspect}`;
+                    gridItem.setAttribute('data-category', item.category);
+
+                    const img = document.createElement('img');
+                    img.src = item.url;
+                    img.alt = item.title;
+                    img.loading = 'lazy';
+
+                    // category overlay
+                    const overlay = document.createElement('div');
+                    overlay.className = 'item-category';
+                    overlay.textContent = item.category === 'ecom' ? '🛍️ e‑commerce' : (item.category === 'corporate' ? '🏢 corporate' : '📱 web app');
+
+                    gridItem.appendChild(img);
+                    gridItem.appendChild(overlay);
+
+                    // lightbox trigger
+                    gridItem.addEventListener('click', () => {
+                        openLightbox(item.url, item.title + ' · ' + item.desc);
+                    });
+
+                    grid.appendChild(gridItem);
+                });
+            }
+
+            // initial render
+            renderGrid('all');
+
+            // ---------- filter logic ----------
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+                    renderGrid(filter);
+                });
+            });
+
+            // ---------- LIGHTBOX ----------
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const closeBtn = document.getElementById('closeLightbox');
+
+            function openLightbox(imgSrc, caption) {
+                lightboxImg.src = imgSrc;
+                lightboxCaption.textContent = caption;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+
+            // small fade-in on scroll
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = { threshold: 0.1 };
+            const appearOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(e => e.isIntersecting && e.target.classList.add('appear'));
+            }, appearOptions);
+            faders.forEach(f => appearOnScroll.observe(f));
+        })();
+    </script>
+    <!-- extra style for fade-in -->
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .home-button i { margin-right: 6px; }
+        .lightbox-content { border-width: 3px; }
+    </style>
+</body>
+</html>
