@@ -246,9 +246,9 @@
             cursor: pointer;
         }
 
-        /* ===== ABOUT ===== */
+        /* ===== ABOUT (ENHANCED, NO AI MENTION) ===== */
         .about-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
             font-size: 1.2rem;
@@ -257,6 +257,36 @@
 
         .about-content p {
             margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+        }
+
+        .highlight-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .highlight-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-light);
+            opacity: 0.8;
         }
 
         /* ===== 4‑PILLAR SKILL GRID ===== */
@@ -457,7 +487,7 @@
             transform: scale(1.03);
         }
 
-        /* ===== VODA STRATEGY ===== */
+        /* ===== VODA STRATEGY (Value‑First Engineering) ===== */
         .voda-section {
             background: linear-gradient(145deg, #0C0C0C, #0A0A0A);
             padding: 4rem 2rem;
@@ -608,13 +638,30 @@
         </div>
     </nav>
 
+    <!-- Enhanced About Section (NO AI MENTION) -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content fade-in">
-                <p>I'm Agwu — a Full‑Stack Engineer based in Nigeria (GMT+1). I architect high‑velocity solutions from sleek frontends to secure backends.</p>
-                <p>My approach fuses modern engineering with a designer's eye. I believe in delivering tangible value first, which is why I offer a risk‑free preview phase.</p>
-                <p>Scalable APIs, responsive UIs, and performance are not just features — they're the foundation.</p>
+                <p>I'm Agwu — a Full‑Stack Engineer based in Nigeria (GMT+1). I transform complex ideas into high‑performance web applications, blending sleek frontends with secure, scalable backends. My secret sauce? A relentless focus on value, precision, and the <strong class="gold-em">Voda Strategy</strong> — I prototype your vision <em>before</em> a single contract is signed, so you see results before you commit.</p>
+                
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-number">40+</div>
+                        <div class="highlight-label">projects delivered</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">99%</div>
+                        <div class="highlight-label">performance score</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">10x</div>
+                        <div class="highlight-label">development velocity</div>
+                    </div>
+                </div>
+
+                <p>My approach fuses modern engineering with a designer's eye. I don't just write code — I architect solutions that are fast, maintainable, and a joy to use. From React SPAs to Node.js microservices and PostgreSQL data models, every layer is crafted with care. I deliver at speeds that feel like magic, without cutting corners.</p>
+                <p>Scalable APIs, responsive UIs, and performance aren't just features — they're the foundation. Let's build something remarkable.</p>
             </div>
         </div>
     </section>
@@ -653,20 +700,20 @@
         <div class="container">
             <h2 class="section-title">Selected work</h2>
             <div class="projects-grid">
-                <!-- Shally Wardrobe -->
+                <!-- Import Company (updated with React) -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="/assets/images/Screenshot_16-11-2025_172856_shally-mu.vercel.app.jpeg" alt="Shally Wardrobe" class="project-img">
+                        <img src="/assets/images/Screenshot_6-3-2026_143123_kanloperenterprises.vercel.app.jpeg" alt="Import Company" class="project-img">
                         <div class="performance-badge"><span>99%</span> Perf</div>
                     </div>
                     <div class="project-content">
-                        <h3>Shally Wardrobe</h3>
-                        <p>Premium fashion designer portfolio with menswear collections. Seamless animations.</p>
+                        <h3>Import Company</h3>
+                        <p>Corporate site for international trade – built with <strong>React</strong> for a dynamic, real‑time dashboard and secure admin area. Backend powered by Node.js + PostgreSQL.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">React</span><span class="tech-tag">Next.js</span><span class="tech-tag">Framer</span>
+                            <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">JWT</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://shally-mu.vercel.app" class="btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://kanloperenterprises.vercel.app/" class="btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
                 </div>
@@ -678,7 +725,7 @@
                     </div>
                     <div class="project-content">
                         <h3>Fashion Design Brand</h3>
-                        <p>Contemporary brand identity & e‑commerce ready collections. API‑driven catalog.</p>
+                        <p>Contemporary brand identity & e‑commerce ready collections. API‑driven catalog with Node/Express.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">MongoDB</span>
                         </div>
@@ -687,20 +734,20 @@
                         </div>
                     </div>
                 </div>
-                <!-- Import Company -->
+                <!-- Shally Wardrobe -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="/assets/images/Screenshot_20-11-2025_102132_kanloper.vercel.app.jpeg" alt="Import Company" class="project-img">
+                        <img src="/assets/images/Screenshot_16-11-2025_172856_shally-mu.vercel.app.jpeg" alt="Shally Wardrobe" class="project-img">
                         <div class="performance-badge"><span>99%</span> Perf</div>
                     </div>
                     <div class="project-content">
-                        <h3>Import Company</h3>
-                        <p>Corporate site for international trade, logistics, and sourcing. Secure admin area.</p>
+                        <h3>Shally Wardrobe</h3>
+                        <p>Premium fashion designer portfolio with menswear collections. Built with React/Next.js and smooth animations.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">PostgreSQL</span><span class="tech-tag">JWT</span><span class="tech-tag">Vercel</span>
+                            <span class="tech-tag">React</span><span class="tech-tag">Next.js</span><span class="tech-tag">Framer</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://kanloper.vercel.app/" class="btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://shally-mu.vercel.app" class="btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
                 </div>
@@ -712,7 +759,7 @@
         </div>
     </section>
 
-    <!-- THE VODA STRATEGY -->
+    <!-- THE VODA STRATEGY (Value‑First Engineering) -->
     <div class="container">
         <div class="voda-section fade-in">
             <h3>⚡ The Voda Strategy: Value‑First Engineering</h3>
