@@ -13,7 +13,7 @@ import ScrollReveal from '../components/ScrollReveal'
 export default function Home() {
   return (
     <>
-      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <a href="#main-content" className="skip-link" style={{ position: 'absolute', top: '-100%' }}>Skip to main content</a>
       <Background variant="home" />
       <Navbar />
       <Hero />
