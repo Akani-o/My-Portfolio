@@ -86,7 +86,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               style={{ color: 'var(--gold)', fontWeight: '600' }}
             >
-              Partnerships
+              Creative Partnerships
             </Link>
           </li>
         </ul>

@@ -77,7 +77,7 @@ export default function Partnerships() {
       <Background variant="vault" />
 
       {/* NAV */}
-      <nav className={scrolled ? 'scrolled' : ''} aria-label="Partnerships navigation">
+      <nav className={scrolled ? 'scrolled' : ''} aria-label="Creative Partnerships navigation">
         <div className="container nav-inner">
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Link to="/" className="brand-mark" aria-label="Home">
@@ -101,7 +101,7 @@ export default function Partnerships() {
               <span className="brand-dj">DJ</span>
             </Link>
             <span className="brand-sep">|</span>
-            <span className="brand-page-label">Partnerships</span>
+            <span className="brand-page-label">Creative Partnerships</span>
           </div>
           <Link to="/" className="home-btn">
             <i className="fas fa-arrow-left" aria-hidden="true" /> Home
@@ -110,21 +110,23 @@ export default function Partnerships() {
       </nav>
 
       <div className="partnerships-page">
-        {/* HERO */}
+
+        {/* ===== HERO ===== */}
         <section className="partnerships-hero">
           <div className="partnerships-hero-depth" aria-hidden="true" />
           <div className="partnerships-hero-content">
             <span className="partnerships-hero-label">Creative Partnerships</span>
             <h1>
-              Modern Web Execution for <span className="gold-word">Creatives</span> & <span className="gold-word">Agencies</span>
+              Reliable Web Execution for <span className="gold-word">Creatives</span>,{' '}
+              <span className="gold-word">Agencies</span> & <span className="gold-word">Consultants</span>
             </h1>
             <p className="partnerships-hero-sub">
-              You shape the vision. I bring it to life on the web. A quiet, reliable collaboration
-              for professionals who need polished digital execution — without building an in-house team.
+              You guide the vision. I handle the web execution. A considered, ongoing collaboration
+              for professionals who want polished digital delivery — without building an in-house team.
             </p>
             <div className="partnerships-hero-buttons">
               <a href="#p-contact" className="btn">
-                <i className="fas fa-comments" aria-hidden="true" /> Start A Conversation
+                <i className="fas fa-comments" aria-hidden="true" /> Discuss A Collaboration
               </a>
               <Link to="/vault" className="btn btn-outline">
                 <i className="fas fa-eye" aria-hidden="true" /> View Selected Work
@@ -134,15 +136,17 @@ export default function Partnerships() {
         </section>
 
         <main>
-          {/* WHO I COLLABORATE WITH */}
+
+          {/* ===== WHO I COLLABORATE WITH ===== */}
           <section className="p-section">
             <div className="container">
               <div className="p-section-title">
                 <span className="p-section-label">Collaboration</span>
-                <h2>Who I <span className="gold-word">work</span> with</h2>
+                <h2>Who this is <span className="gold-word">for</span></h2>
               </div>
               <p className="p-section-subtitle">
-                I partner with professionals who already serve businesses and brands — and need reliable web execution to complement their expertise.
+                I work alongside professionals who already serve businesses and brands — and need a
+                trusted web partner to extend what they can confidently deliver.
               </p>
 
               <div className="collab-grid">
@@ -156,7 +160,7 @@ export default function Partnerships() {
                   { icon: 'fa-compass', title: 'Digital Strategists' },
                   { icon: 'fa-handshake', title: 'Business Consultants' }
                 ].map((item, i) => (
-                  <div className={`collab-card fade-in`} key={item.title} style={{ transitionDelay: `${i * 0.06}s` }}>
+                  <div className="collab-card fade-in" key={item.title} style={{ transitionDelay: `${i * 0.06}s` }}>
                     <div className="collab-icon">
                       <i className={`fas ${item.icon}`} aria-hidden="true" />
                     </div>
@@ -167,7 +171,7 @@ export default function Partnerships() {
             </div>
           </section>
 
-          {/* WHY THESE PARTNERSHIPS EXIST */}
+          {/* ===== WHY THESE PARTNERSHIPS EXIST ===== */}
           <section className="p-section p-section-alt">
             <div className="container">
               <div className="p-section-title">
@@ -178,21 +182,83 @@ export default function Partnerships() {
               <div className="why-content fade-in">
                 <div className="why-card">
                   <p>
-                    Many talented professionals — marketers, designers, strategists — work closely with businesses every day. They shape brands, run campaigns, and drive growth. But when a client needs a website, it often falls outside their core workflow.
+                    Talented professionals — marketers, designers, strategists, consultants — shape brands and drive
+                    growth every day. But when a client needs a website built, it often sits outside their core
+                    expertise. The gap between creative strategy and web execution is where valuable opportunities
+                    quietly fall through.
                   </p>
                   <p>
-                    That's where this collaboration becomes natural. Rather than turning clients away or outsourcing to unpredictable freelancers, you work with someone who treats your client's project with the same <span className="gold-em">care and precision</span> you would.
+                    This collaboration closes that gap naturally. Instead of referring clients elsewhere or managing
+                    unpredictable outsourcing, you work with a consistent partner who treats every project with the
+                    same <span className="gold-em">precision and care</span> your reputation depends on.
                   </p>
                   <p>
-                    I handle the web execution — <span className="gold-em">design, development, and delivery</span> — while you maintain the client relationship and creative direction. The result is a seamless experience where everyone benefits.
+                    I handle the <span className="gold-em">design, development, and delivery</span> — while you
+                    maintain the client relationship and creative oversight. The experience feels seamless, because
+                    it's built on alignment, not transaction.
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* WHAT I BUILD */}
+          {/* ===== LONG-TERM COLLABORATION ===== */}
           <section className="p-section">
+            <div className="container">
+              <div className="p-section-title">
+                <span className="p-section-label">Depth</span>
+                <h2>Long-term <span className="gold-word">collaboration</span></h2>
+              </div>
+
+              <div className="why-content">
+                <div className="why-card fade-in" style={{ marginBottom: '1.5rem' }}>
+                  <p>
+                    The most meaningful professional relationships are not built around single transactions.
+                    They develop through <span className="gold-em">consistent quality</span>, mutual respect,
+                    and a shared commitment to the work.
+                  </p>
+                  <p>
+                    When you introduce a client, your professional reputation is on the line. I understand that
+                    deeply. Every project I execute reflects not only on my own standards — but on yours. That
+                    responsibility shapes everything I build.
+                  </p>
+                </div>
+                <div className="longterm-grid fade-in">
+                  <div className="longterm-card">
+                    <div className="longterm-icon">
+                      <i className="fas fa-shield-alt" aria-hidden="true" />
+                    </div>
+                    <h4>Reputation-Aware</h4>
+                    <p>Your credibility is protected through consistently polished, reliable delivery.</p>
+                  </div>
+                  <div className="longterm-card">
+                    <div className="longterm-icon">
+                      <i className="fas fa-sync-alt" aria-hidden="true" />
+                    </div>
+                    <h4>Ongoing Alignment</h4>
+                    <p>Collaboration deepens over time. Returning partners experience smoother, faster workflows.</p>
+                  </div>
+                  <div className="longterm-card">
+                    <div className="longterm-icon">
+                      <i className="fas fa-expand-arrows-alt" aria-hidden="true" />
+                    </div>
+                    <h4>Expanded Capability</h4>
+                    <p>Confidently offer web execution to your clients knowing the delivery meets your standards.</p>
+                  </div>
+                  <div className="longterm-card">
+                    <div className="longterm-icon">
+                      <i className="fas fa-seedling" aria-hidden="true" />
+                    </div>
+                    <h4>Mutual Growth</h4>
+                    <p>Strong collaborations create value on both sides. Trusted partnerships are always appreciated.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ===== WHAT I BUILD ===== */}
+          <section className="p-section p-section-alt">
             <div className="container">
               <div className="p-section-title">
                 <span className="p-section-label">Execution</span>
@@ -201,12 +267,12 @@ export default function Partnerships() {
 
               <div className="build-grid">
                 {[
-                  { icon: 'fa-building', title: 'Business Websites', desc: 'Complete multi-page websites for established businesses' },
+                  { icon: 'fa-building', title: 'Business Websites', desc: 'Complete multi-page websites for established businesses and ventures' },
                   { icon: 'fa-file-alt', title: 'Landing Pages', desc: 'Focused, conversion-oriented single-page experiences' },
-                  { icon: 'fa-briefcase', title: 'Portfolio Websites', desc: 'Elegant showcases for professionals and creators' },
-                  { icon: 'fa-palette', title: 'Brand Websites', desc: 'Visually rich sites that capture brand identity' },
-                  { icon: 'fa-rocket', title: 'Campaign Websites', desc: 'Event, launch, or promotional microsites' },
-                  { icon: 'fa-concierge-bell', title: 'Service Websites', desc: 'Structured sites for service-based businesses' },
+                  { icon: 'fa-briefcase', title: 'Portfolio Websites', desc: 'Elegant digital showcases for professionals and creators' },
+                  { icon: 'fa-palette', title: 'Brand Websites', desc: 'Visually rich sites that capture and communicate brand identity' },
+                  { icon: 'fa-rocket', title: 'Campaign Websites', desc: 'Event, launch, or promotional microsites with purpose' },
+                  { icon: 'fa-concierge-bell', title: 'Service Websites', desc: 'Structured sites designed for service-based businesses' },
                   { icon: 'fa-calendar-check', title: 'Booking Websites', desc: 'Appointment and reservation-focused platforms' }
                 ].map((item, i) => (
                   <div className="build-item fade-in" key={item.title} style={{ transitionDelay: `${i * 0.07}s` }}>
@@ -221,8 +287,8 @@ export default function Partnerships() {
             </div>
           </section>
 
-          {/* HOW THE COLLABORATION WORKS */}
-          <section className="p-section p-section-alt">
+          {/* ===== HOW THE COLLABORATION WORKS ===== */}
+          <section className="p-section">
             <div className="container">
               <div className="p-section-title">
                 <span className="p-section-label">Workflow</span>
@@ -231,10 +297,10 @@ export default function Partnerships() {
 
               <div className="p-process-grid">
                 {[
-                  { num: '01', title: 'Conversation', desc: 'We discuss the project scope, client needs, and your creative direction.' },
-                  { num: '02', title: 'Direction', desc: 'I shape the site structure, visual approach, and timeline.' },
-                  { num: '03', title: 'Execution', desc: 'I design and develop the site with ongoing collaboration and refinement.' },
-                  { num: '04', title: 'Delivery', desc: 'The finished site goes live — polished, responsive, and ready.' }
+                  { num: '01', title: 'Conversation', desc: 'We discuss the project scope, client context, and your creative direction.' },
+                  { num: '02', title: 'Direction', desc: 'I shape the site structure, visual approach, and a realistic timeline.' },
+                  { num: '03', title: 'Execution', desc: 'I design and develop with ongoing collaboration, refinement, and transparency.' },
+                  { num: '04', title: 'Delivery', desc: 'The finished site goes live — polished, responsive, and built to last.' }
                 ].map((step, i) => (
                   <div className="p-step fade-in" key={step.num} style={{ transitionDelay: `${i * 0.1}s` }}>
                     <div className="p-step-num">{step.num}</div>
@@ -246,30 +312,31 @@ export default function Partnerships() {
             </div>
           </section>
 
-          {/* LOW-RISK APPROACH */}
-          <section className="p-section">
+          {/* ===== CONCEPT BEFORE COMMITMENT ===== */}
+          <section className="p-section p-section-alt">
             <div className="container">
               <div className="p-section-title">
                 <span className="p-section-label">Approach</span>
-                <h2>Thoughtful <span className="gold-word">first steps</span></h2>
+                <h2>Clarity before <span className="gold-word">commitment</span></h2>
               </div>
 
               <div className="approach-card fade-in">
                 <div className="approach-icon">
-                  <i className="fas fa-shield-alt" aria-hidden="true" />
+                  <i className="fas fa-compass" aria-hidden="true" />
                 </div>
-                <h3>Concept Before Commitment</h3>
+                <h3>Early Direction & Alignment</h3>
                 <p>
-                  Every project begins with an early concept direction — giving you and your client
-                  a clear sense of the visual approach and structure before moving into full development.
-                  This ensures alignment from the start and builds confidence in the direction we take together.
+                  Every collaboration begins with an initial concept exploration — establishing the
+                  visual direction, structure, and tone before full development begins. This creates
+                  shared clarity between you, your client, and the build process — ensuring alignment
+                  from the very first step, and confidence in the direction we pursue together.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* SELECTED WORK */}
-          <section className="p-section p-section-alt">
+          {/* ===== SELECTED WORK ===== */}
+          <section className="p-section">
             <div className="container">
               <div className="p-section-title">
                 <span className="p-section-label">Portfolio</span>
@@ -278,9 +345,9 @@ export default function Partnerships() {
 
               <div className="work-preview fade-in">
                 <p>
-                  Browse a curated collection of websites I've built for businesses and brands across
-                  industries — from fashion and food to healthcare and commerce. Each project reflects
-                  the same standard of quality and attention you can expect from a collaboration.
+                  Explore a curated collection of websites I've designed and built for businesses and brands
+                  across industries — from fashion and healthcare to commerce and creative services. Each project
+                  reflects the same standard of craft and consideration that defines every collaboration.
                 </p>
                 <Link to="/vault" className="btn btn-outline">
                   <i className="fas fa-th-large" aria-hidden="true" /> Explore The Archive
@@ -289,8 +356,8 @@ export default function Partnerships() {
             </div>
           </section>
 
-          {/* PROFESSIONAL VALUES */}
-          <section className="p-section">
+          {/* ===== PROFESSIONAL VALUES ===== */}
+          <section className="p-section p-section-alt">
             <div className="container">
               <div className="p-section-title">
                 <span className="p-section-label">Standards</span>
@@ -299,12 +366,12 @@ export default function Partnerships() {
 
               <div className="values-grid">
                 {[
-                  { icon: 'fa-comments', title: 'Clear Communication', desc: 'Responsive, transparent updates at every stage of the project.' },
-                  { icon: 'fa-clock', title: 'Reliable Delivery', desc: 'Timelines that are realistic, respected, and consistently met.' },
-                  { icon: 'fa-gem', title: 'Thoughtful Execution', desc: 'Every detail — typography, spacing, interactions — is considered.' },
-                  { icon: 'fa-mobile-alt', title: 'Modern Standards', desc: 'Responsive, fast, SEO-aware websites built with current technology.' },
-                  { icon: 'fa-eye', title: 'Attention to Detail', desc: 'Nothing ships rough. Every pixel, every interaction is polished.' },
-                  { icon: 'fa-infinity', title: 'Long-Term Mindset', desc: 'Built for ongoing collaboration, not just one-off transactions.' }
+                  { icon: 'fa-comments', title: 'Clear Communication', desc: 'Responsive, transparent updates throughout every stage of the project.' },
+                  { icon: 'fa-clock', title: 'Reliable Delivery', desc: 'Timelines are realistic, respected, and consistently honoured.' },
+                  { icon: 'fa-gem', title: 'Thoughtful Execution', desc: 'Every detail — typography, spacing, interaction — is carefully considered.' },
+                  { icon: 'fa-mobile-alt', title: 'Modern Standards', desc: 'Responsive, performant, SEO-aware websites built with current technology.' },
+                  { icon: 'fa-eye', title: 'Attention to Detail', desc: 'Nothing leaves unfinished. Every element is refined before delivery.' },
+                  { icon: 'fa-infinity', title: 'Long-Term Mindset', desc: 'Built for sustained collaboration, not isolated transactions.' }
                 ].map((val, i) => (
                   <div className="value-card fade-in" key={val.title} style={{ transitionDelay: `${i * 0.07}s` }}>
                     <div className="value-icon">
@@ -318,20 +385,21 @@ export default function Partnerships() {
             </div>
           </section>
 
-          {/* CONTACT */}
-          <section className="p-section p-section-alt" id="p-contact">
+          {/* ===== CONTACT ===== */}
+          <section className="p-section" id="p-contact">
             <div className="container">
               <div className="p-section-title">
                 <span className="p-section-label">Connect</span>
-                <h2>Start a <span className="gold-word">conversation</span></h2>
+                <h2>Begin a <span className="gold-word">conversation</span></h2>
               </div>
 
               <div className="p-contact-grid">
                 <div className="p-contact-info fade-in-left">
-                  <h3>Let's discuss a project</h3>
+                  <h3>Let's explore working together</h3>
                   <p>
-                    Whether you have a client project in mind or want to explore how we might work together,
-                    I'd welcome the conversation. No pressure, no hard sell — just a professional discussion.
+                    Whether you have a specific client project in mind or would like to explore how
+                    an ongoing collaboration might work, I welcome the conversation. Thoughtful
+                    partnerships begin with a simple, open dialogue.
                   </p>
 
                   <div className="p-contact-item">
@@ -349,7 +417,7 @@ export default function Partnerships() {
                     </div>
                     <div className="p-contact-text">
                       <h4>Location</h4>
-                      <p>Nigeria (GMT+1) · Working globally</p>
+                      <p>Nigeria (GMT+1) · Collaborating globally</p>
                     </div>
                   </div>
                 </div>
@@ -374,16 +442,30 @@ export default function Partnerships() {
                     </div>
                     <div className="form-group">
                       <label htmlFor="p-message">Message</label>
-                      <textarea id="p-message" name="message" placeholder="Tell me about the project or collaboration you have in mind…" rows="5" required />
+                      <textarea
+                        id="p-message"
+                        name="message"
+                        placeholder="Tell me about the project or collaboration you have in mind…"
+                        rows="5"
+                        required
+                      />
                     </div>
-                    <input type="hidden" name="_subject" value="Partnership Inquiry — agwukalu.com" />
-                    <button type="submit" className="btn" style={{ alignSelf: 'flex-start' }} disabled={isSubmitting}>
+                    <input type="hidden" name="_subject" value="Creative Partnership Inquiry — agwukalu.com" />
+                    <button
+                      type="submit"
+                      className="btn"
+                      style={{ alignSelf: 'flex-start' }}
+                      disabled={isSubmitting}
+                    >
                       {isSubmitting
                         ? <><i className="fas fa-spinner fa-spin" aria-hidden="true" /> Sending…</>
                         : <><i className="fas fa-paper-plane" aria-hidden="true" /> Send Message</>
                       }
                     </button>
-                    <div className={`form-status${formStatus.type ? ' ' + formStatus.type : ''}`} aria-live="polite">
+                    <div
+                      className={`form-status${formStatus.type ? ' ' + formStatus.type : ''}`}
+                      aria-live="polite"
+                    >
                       {formStatus.text}
                     </div>
                   </form>
@@ -391,6 +473,7 @@ export default function Partnerships() {
               </div>
             </div>
           </section>
+
         </main>
 
         {/* FOOTER */}
