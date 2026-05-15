@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Vault from './pages/Vault'
+import Partnerships from './pages/Partnerships'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -18,7 +19,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/vault" element={<Vault />} />
-        <Route path="/vault/" element={<Vault />} />
+        <Route path="/partnerships" element={<Partnerships />} />
       </Routes>
     </>
   )

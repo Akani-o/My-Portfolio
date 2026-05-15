@@ -30,7 +30,6 @@ export default function Navbar() {
         setMenuOpen(false)
       }
     }
-
     const links = document.querySelectorAll('a[href^="#"]')
     links.forEach(link => link.addEventListener('click', handleSmoothScroll))
     return () => links.forEach(link => link.removeEventListener('click', handleSmoothScroll))
@@ -80,6 +79,16 @@ export default function Navbar() {
           <li><a href="#projects" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a></li>
           <li><a href="#process" className="nav-link" onClick={() => setMenuOpen(false)}>Process</a></li>
           <li><a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a></li>
+          <li>
+            <Link
+              to="/partnerships"
+              className="nav-link"
+              onClick={() => setMenuOpen(false)}
+              style={{ color: 'var(--gold)', fontWeight: '600' }}
+            >
+              Partnerships
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
