@@ -130,7 +130,7 @@ export default function Projects() {
 
         <div className="vault-cta fade-in">
           <Link to="/vault" className="btn-vault">
-            <i className="fas fa-th-large" aria-hidden="true" /> View All Projects
+            <i className="fas fa-th-large" aria-hidden="true" /> Explore The Archive
           </Link>
         </div>
       </div>

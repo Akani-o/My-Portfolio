@@ -295,9 +295,9 @@ export default function Vault() {
         <div className="container">
           <div className="vault-header fade-in">
             <h1>Project <span className="gold-word">Archive</span></h1>
-            <p>Every website I've built — real projects for real businesses and brands, all live and hosted.</p>
+            <p>A curated archive of websites built for businesses, brands, and creative ventures.</p>
             <div className="project-count" aria-live="polite">
-              Showing {filtered.length} project{filtered.length !== 1 ? 's' : ''}
+            Selected Work
             </div>
           </div>
         </div>
@@ -340,8 +340,8 @@ export default function Vault() {
 
         <div className="container">
           <div className="vault-cta-section fade-in">
-            <h3>Like what you see?</h3>
-            <p>I'd love to build something for your business too.</p>
+            <h3>Building thoughtful digital experiences for businesses, brands, and creative ventures.</h3>
+            <p>If you're exploring a new website or digital presence, let's start a conversation.</p>
             <a
               href="https://wa.me/2347059895477"
               className="btn-cta"

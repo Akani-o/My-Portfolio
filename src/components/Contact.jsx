@@ -60,7 +60,7 @@ export default function Contact() {
         <div className="contact-grid">
           <div className="contact-info fade-in-left">
             <h3>Start a conversation</h3>
-            <p>Have a project in mind? Need a website for your business? I'd love to hear about it.</p>
+            <p>Exploring a new digital presence, business website, or creative project? Let's start a thoughtful conversation.</p>
 
             <div className="contact-item">
               <div className="contact-icon"><i className="fab fa-whatsapp" aria-hidden="true" /></div>
